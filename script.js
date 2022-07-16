@@ -1,12 +1,16 @@
 const TodoInput = document.querySelector('.input')
 const TodoButton = document.querySelector('.button')
 const TodoUl = document.querySelector('.todoUl')
-const TodoLI = document.querySelector('.todoLi')
 
 TodoButton.addEventListener('click', ()=> {
-    const abc = TodoInput.value
-    const aa = TodoUl.appendChild(TodoLI)
-    const a = aa.innerText = abc
-    console.log(a)
+    if(TodoInput.value.length > 0) {
+        const TodoLi = document.createElement('li')
+        TodoLi.innerHTML = TodoInput.value
+        TodoUl.appendChild(TodoLi)
+        TodoInput.value = ""
+    } else {
+        alert("할 일을 입력하세요.")
+    }
+    
 })
 
